@@ -17,15 +17,15 @@ L'infrastructure est entièrement isolée et orchestrée à l'aide de **Docker C
 
 ### 1. Lancement des conteneurs isolés
 L'application s'exécute de manière fluide dans son environnement Docker :
-![Terminal Flask](./images/terminal.png)
+![Terminal Flask](./images/terminal)
 
 ### 2. Statut des cibles Prometheus
 Grâce à une configuration réseau Docker stricte, Prometheus détecte et interroge l'application avec succès (Statut **UP / VERT**) :
-![Prometheus Targets](./images/prometheuspro.jpg)
+![Prometheus Targets](./images/prometheuspro)
 
 ### 3. Tableau de bord Grafana
 Visualisation en temps réel de la métrique personnalisée `nombre_total_de_visites_total` lors des rafraîchissements de page :
-![Grafana Dashboard](./images/grafanapro.png)
+![Grafana Dashboard](./images/grafanapro)
 
 ---
 
