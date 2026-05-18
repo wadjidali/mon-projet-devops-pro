@@ -1,0 +1,10 @@
+global:
+  scrape_interval: 5s     # Fréquence à laquelle Prometheus va récolter les métriques (toutes les 5 secondes)
+  evaluation_interval: 5s # Fréquence d'évaluation des règles d'alerte
+
+scrape_configs:
+  # Cible 1 : Notre application Python/Flask
+  - job_name: 'mon-application-job'
+    metrics_path: '/metrics' # Le chemin de la page secrète dans notre code Python
+    static_configs:
+      - targets: ['web-app:5000'] # 'web-app' correspond exactement au nom du service dans docker-compose.yml

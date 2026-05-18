@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  # Bloc 1 : Notre application Python
+  web-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+
+  # Bloc 2 : Le serveur Prometheus de surveillance
+  prometheus:
+    image: prom/prometheus:v2.45.0
+    ports:
+      - "9091:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    restart: unless-stopped
+    
+    # Bloc 3 : Grafana pour les beaux graphiques
+  grafana:
+    image: grafana/grafana:10.2.0
+    ports:
+      - "3001:3000" # <-- On change le premier nombre ici !
+    restart: unless-stopped
